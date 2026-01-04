@@ -1,0 +1,43 @@
+
+> up-for-grabs.net@1.0.0 astro
+> astro check
+
+14:37:17 [Collection search] building search index
+14:37:17 [Collection search] reading collection: projects
+14:37:18 [Collection search] indexed 1158 docs
+14:37:18 [Collection search] writing search index
+14:37:18 [Collection search] copying search worker
+14:37:18 [Collection search] complete in 491.43ms
+14:37:18 [content] Syncing content
+14:37:18 [content] Synced content
+14:37:18 [types] Generated 485ms
+14:37:18 [check] Getting diagnostics for Astro files in /home/shiftkey/src/up-for-grabs.net...
+[96msrc/components/CustomSearch.astro[0m:[93m124[0m:[93m59[0m - [91merror[0m[90m ts(2322): [0mType 'unknown' is not assignable to type 'string | { text: string; attributes: Record<string, string>; }'.
+
+[7m124[0m                 frontmatter.append(SetContent(row, { key, value }));
+[7m   [0m [91m                                                          ~~~~~[0m
+
+[96msrc/components/search/Project.astro[0m:[93m35[0m:[93m32[0m - [91merror[0m[90m ts(2322): [0mType '{ 'issue-count': number; 'last-updated'?: string | undefined; 'fork-count'?: number | undefined; } | undefined' is not assignable to type '{ issueCount?: number | undefined; lastUpdated?: Date | undefined; } | undefined'.
+  Type '{ 'issue-count': number; 'last-updated'?: string | undefined; 'fork-count'?: number | undefined; }' has no properties in common with type '{ issueCount?: number | undefined; lastUpdated?: Date | undefined; }'.
+
+[7m35[0m             <ProjectIssueCount stats={project.data.stats} />
+[7m  [0m [91m                               ~~~~~[0m
+[96msrc/components/search/Project.astro[0m:[93m12[0m:[93m51[0m - [91merror[0m[90m ts(2339): [0mProperty 'name' does not exist on type '{ id: string; body?: string | undefined; collection: "projects"; data: { name: string; desc: string; site: string; tags: string[]; upforgrabs: { name: string; link: string; }; stats?: { 'issue-count': number; 'last-updated'?: string | undefined; 'fork-count'?: number | undefined; } | undefined; }; rendered?: Rendere...'.
+
+[7m12[0m const linkTitle = `View open issues for ${project.name}`;
+[7m  [0m [91m                                                  ~~~~[0m
+
+[96msrc/components/search/ProjectIssueCount.astro[0m:[93m49[0m:[93m28[0m - [91merror[0m[90m ts(2551): [0mProperty 'issue-count' does not exist on type '{ issueCount?: number | undefined; lastUpdated?: Date | undefined; }'. Did you mean 'issueCount'?
+
+[7m49[0m const issueCount = stats?.['issue-count'];
+[7m  [0m [91m                           ~~~~~~~~~~~~~[0m
+[96msrc/components/search/ProjectIssueCount.astro[0m:[93m41[0m:[93m29[0m - [91merror[0m[90m ts(2551): [0mProperty 'last-updated' does not exist on type '{ issueCount?: number | undefined; lastUpdated?: Date | undefined; }'. Did you mean 'lastUpdated'?
+
+[7m41[0m const lastUpdated = stats?.['last-updated'];
+[7m  [0m [91m                            ~~~~~~~~~~~~~~[0m
+
+Result (14 files): 
+- 5 errors
+- 0 warnings
+- 0 hints
+
